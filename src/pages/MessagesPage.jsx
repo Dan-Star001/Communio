@@ -29,7 +29,6 @@ const MessagesPage = () => {
       token = tokenStr;
     }
   } catch (e) {
-    console.error('Error parsing user data:', e);
   }
 
   const userId = user?._id || user?.id;
@@ -40,7 +39,6 @@ const MessagesPage = () => {
 
     const fetchConversations = async () => {
       if (!token) {
-        console.error('❌ No token found');
         setLoading(false);
         navigate('/signin');
         return;
