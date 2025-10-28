@@ -6,7 +6,7 @@ import Button from "../../components/Button";
 import { useNavigate } from 'react-router-dom';
 import { logout } from '../../store/authSlice';
 import Switch from '../../components/Switch';
-import logo from "../assets/logo.png";
+import logo from "../../assets/logo.png";
 
 
 const Sidebar = () => {
