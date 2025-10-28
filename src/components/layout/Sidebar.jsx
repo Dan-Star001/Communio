@@ -1,13 +1,13 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { setCurrentTab, toggleCreateModal, setTheme } from '../../store/uiSlice';
-import { 
-  MdHome, MdSearch, MdAdd, MdPlayArrow, MdPerson, MdChat, MdFavorite, MdSettings
-} from 'react-icons/md';
+import { MdHome, MdSearch, MdAdd, MdPlayArrow, MdPerson, MdChat, MdFavorite, MdSettings} from 'react-icons/md';
 import Button from "../../components/Button";
 import { useNavigate } from 'react-router-dom';
 import { logout } from '../../store/authSlice';
 import Switch from '../../components/Switch';
+import logo from "../assets/logo.png";
+
 
 const Sidebar = () => {
   const dispatch = useDispatch();
@@ -103,7 +103,7 @@ useEffect(() => {
         {/* 🆕 FIX 1: Logo only shows when expanded */}
         <div className="flex h-16 items-center justify-start px-4 border-b border-border">
           {!isCollapsed && (
-            <img src="/src/assets/logo.png" className='m-4' width={160} alt="" />
+            <img src={logo} className='m-4' width={160} alt="" />
           )}
         </div>
 
