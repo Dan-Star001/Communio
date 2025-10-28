@@ -89,7 +89,6 @@ const PostCard = ({ post }) => {
                 className="w-full h-full object-cover"
                 loading="lazy"
                 onError={(e) => {
-                  console.error('Image load error:', post.mediaUrl);
                   e.target.src = '/default-image.png';
                 }}
               />
@@ -101,7 +100,6 @@ const PostCard = ({ post }) => {
                 playsInline
                 preload="metadata"
                 onError={(e) => {
-                  console.error('Video load error:', post.mediaUrl);
                 }}
               >
                 Your browser doesn't support video.
