@@ -8,7 +8,7 @@ export const fetchNotifications = createAsyncThunk(
   async (_, { rejectWithValue }) => {
     try {
       const token = localStorage.getItem('token');
-      const response = await axios.get('http://localhost:1709/api/notifications', {
+      const response = await axios.get('https://backend-e54z.onrender.com/api/notifications', {
         headers: { Authorization: `Bearer ${token}` }
       });
       return response.data.notifications;
@@ -24,7 +24,7 @@ export const markNotificationAsRead = createAsyncThunk(
   async (notificationId, { rejectWithValue }) => {
     try {
       const token = localStorage.getItem('token');
-      const response = await axios.put(`http://localhost:1709/api/notifications/${notificationId}/read`, {}, {
+      const response = await axios.put(`https://backend-e54z.onrender.com/api/notifications/${notificationId}/read`, {}, {
         headers: { Authorization: `Bearer ${token}` }
       });
       return response.data.notification;
@@ -40,7 +40,7 @@ export const markAllNotificationsAsRead = createAsyncThunk(
   async (_, { rejectWithValue }) => {
     try {
       const token = localStorage.getItem('token');
-      await axios.put('http://localhost:1709/api/notifications/read-all', {}, {
+      await axios.put('https://backend-e54z.onrender.com/api/notifications/read-all', {}, {
         headers: { Authorization: `Bearer ${token}` }
       });
       return true;

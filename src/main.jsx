@@ -17,7 +17,7 @@ let store = configureStore({
 })
 
 // Configure axios defaults early so all calls pick up baseURL and Authorization
-const API_BASE = import.meta.env.VITE_API_BASE || 'http://localhost:1709';
+const API_BASE = import.meta.env.VITE_API_BASE || 'https://backend-e54z.onrender.com';
 axios.defaults.baseURL = API_BASE;
 const token = localStorage.getItem('token');
 if (token) {

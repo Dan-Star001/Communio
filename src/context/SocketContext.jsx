@@ -24,7 +24,7 @@ export const SocketProvider = ({ children }) => {
     }
 
     // Allow polling as a fallback; websocket-only can fail in some environments
-    const apiUrl = import.meta.env.VITE_API_BASE || 'http://localhost:1709';
+    const apiUrl = import.meta.env.VITE_API_BASE || 'https://backend-e54z.onrender.com';
     const newSocket = io(apiUrl, {
       auth: { token },
       transports: ['websocket', 'polling'],

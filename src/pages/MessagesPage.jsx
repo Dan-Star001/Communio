@@ -55,7 +55,7 @@ const MessagesPage = () => {
       }, 20000);
 
       try {
-        const response = await axios.get('http://localhost:1709/api/chat/conversations', {
+        const response = await axios.get('https://backend-e54z.onrender.com/api/chat/conversations', {
           headers: {
             Authorization: `Bearer ${token}`
           }

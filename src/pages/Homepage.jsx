@@ -27,7 +27,7 @@ const Homepage = () => {
         dispatch(getSuggestedUsers()); // FETCH SUGGESTED USERS
 
         // Initialize socket for real-time updates
-        const socket = initializeSocket('http://localhost:1709');
+        const socket = initializeSocket('https://backend-e54z.onrender.com');
         socket.on('post_like_update', (data) => {
             dispatch(updatePostLike({ postId: data.postId, likes: data.likes }));
         });
@@ -57,7 +57,7 @@ const Homepage = () => {
     }, []);
 
     let token = localStorage.getItem('token');  
-    let url = "http://localhost:1709/api/users/homepage";
+    let url = "https://backend-e54z.onrender.com/api/users/homepage";
     
     const getHome = () => {        
         if (!token) {

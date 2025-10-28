@@ -8,7 +8,7 @@ export const fetchConversations = createAsyncThunk(
         try {
             // LINE 4: Get token from localStorage
             const token = localStorage.getItem('token');
-            const response = await axios.get('http://localhost:1709/api/chat/conversations', {
+            const response = await axios.get('https://backend-e54z.onrender.com/api/chat/conversations', {
                 headers: { Authorization: `Bearer ${token}` },
                 timeout: 10000 // 10 seconds timeout
             });
@@ -26,7 +26,7 @@ export const fetchMessages = createAsyncThunk(
         try {
             const token = localStorage.getItem('token');
             const response = await axios.get(
-                `http://localhost:1709/api/chat/conversations/${conversationId}/messages?page=${page}`,
+                `https://backend-e54z.onrender.com/api/chat/conversations/${conversationId}/messages?page=${page}`,
                 { 
                     headers: { Authorization: `Bearer ${token}` },
                     timeout: 10000 // 10 seconds timeout
@@ -45,7 +45,7 @@ export const createConversation = createAsyncThunk(
     async (participantId, { rejectWithValue }) => {
         try {
             const token = localStorage.getItem('token');
-            const response = await axios.post('http://localhost:1709/api/chat/conversations',
+            const response = await axios.post('https://backend-e54z.onrender.com/api/chat/conversations',
                 { participantId },
                 { 
                     headers: { Authorization: `Bearer ${token}` },

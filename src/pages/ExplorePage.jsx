@@ -45,7 +45,7 @@ const ExplorePage = () => {
           return;
         }
 
-        const response = await axios.get(`http://localhost:1709/api/users/search?q=${encodeURIComponent(query)}`, {
+        const response = await axios.get(`https://backend-e54z.onrender.com/api/users/search?q=${encodeURIComponent(query)}`, {
           headers: { Authorization: `Bearer ${token}` }
         });
         if (response.data.success) {

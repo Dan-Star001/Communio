@@ -9,11 +9,11 @@ export default defineConfig({
   server: {
     proxy: {
       '/api': {
-        target: 'http://localhost:1709',
+        target: 'https://backend-e54z.onrender.com',
         changeOrigin: true
       },
       '/user': {
-        target: 'http://localhost:1709',
+        target: 'https://backend-e54z.onrender.com',
         changeOrigin: true
       }
     }

@@ -93,7 +93,7 @@ export const fetchFeed = createAsyncThunk(
     async (_, { rejectWithValue }) => {
         try {
             const token = localStorage.getItem('token');
-            const response = await axios.get('http://localhost:1709/api/posts/feed', {
+            const response = await axios.get('https://backend-e54z.onrender.com/api/posts/feed', {
                 headers: { Authorization: `Bearer ${token}` }
             });
             return response.data.posts;
@@ -109,7 +109,7 @@ export const fetchUserPosts = createAsyncThunk(
     async (userId, { rejectWithValue }) => {
         try {
             const token = localStorage.getItem('token');
-            const response = await axios.get(`http://localhost:1709/api/posts/user/${userId}`, {
+            const response = await axios.get(`https://backend-e54z.onrender.com/api/posts/user/${userId}`, {
                 headers: { Authorization: `Bearer ${token}` }
             });
             return response.data.posts;
@@ -127,7 +127,7 @@ export const createPost = createAsyncThunk(
             
             
             // ✅ FIXED: Use full URL and proper headers
-            const response = await axios.post('http://localhost:1709/api/posts', formData, {
+            const response = await axios.post('https://backend-e54z.onrender.com/api/posts', formData, {
                 headers: {
                     'Authorization': `Bearer ${token}`,
                     // Don't set Content-Type - let browser set it with boundary
@@ -147,7 +147,7 @@ export const toggleLike = createAsyncThunk(
     async (postId, { rejectWithValue }) => {
         try {
             const token = localStorage.getItem('token');
-            const response = await axios.post(`http://localhost:1709/api/posts/${postId}/like`, {}, {
+            const response = await axios.post(`https://backend-e54z.onrender.com/api/posts/${postId}/like`, {}, {
                 headers: { Authorization: `Bearer ${token}` }
             });
             return { postId, likes: response.data.likes };
@@ -162,7 +162,7 @@ export const toggleBookmark = createAsyncThunk(
     async (postId, { rejectWithValue }) => {
         try {
             const token = localStorage.getItem('token');
-            const response = await axios.post(`http://localhost:1709/api/posts/${postId}/bookmark`, {}, {
+            const response = await axios.post(`https://backend-e54z.onrender.com/api/posts/${postId}/bookmark`, {}, {
                 headers: { Authorization: `Bearer ${token}` }
             });
             return { postId, isBookmarked: response.data.isBookmarked };
@@ -177,7 +177,7 @@ export const addComment = createAsyncThunk(
     async ({ postId, text }, { rejectWithValue }) => {
         try {
             const token = localStorage.getItem('token');
-            const response = await axios.post(`http://localhost:1709/api/posts/${postId}/comment`, { text }, {
+            const response = await axios.post(`https://backend-e54z.onrender.com/api/posts/${postId}/comment`, { text }, {
                 headers: { Authorization: `Bearer ${token}` }
             });
             return { postId, comment: response.data.comment };
@@ -206,7 +206,7 @@ export const fetchStories = createAsyncThunk(
 // Socket.io setup for real-time updates
 let socket = null;
 
-export const initializeSocket = (url = 'http://localhost:1709') => {
+export const initializeSocket = (url = 'https://backend-e54z.onrender.com') => {
     if (!socket) {
         socket = io(url, {
             auth: {

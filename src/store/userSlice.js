@@ -10,7 +10,7 @@ export const getSuggestedUsers = createAsyncThunk(
                 return rejectWithValue('No token found');
             }
 
-            const response = await axios.get('http://localhost:1709/api/users/suggested', {
+            const response = await axios.get('https://backend-e54z.onrender.com/api/users/suggested', {
                 headers: { Authorization: `Bearer ${token}` }
             });
             
@@ -37,7 +37,7 @@ export const searchUsers = createAsyncThunk(
                 return rejectWithValue('No token found');
             }
 
-            const response = await axios.get(`http://localhost:1709/api/users/search?q=${encodeURIComponent(query)}`, {
+            const response = await axios.get(`https://backend-e54z.onrender.com/api/users/search?q=${encodeURIComponent(query)}`, {
                 headers: { Authorization: `Bearer ${token}` }
             });
 
@@ -55,7 +55,7 @@ export const followUser = createAsyncThunk(
     async (userId, { rejectWithValue }) => {
         try {
             const token = localStorage.getItem('token');
-            const response = await axios.post(`http://localhost:1709/api/users/${userId}/follow`, {}, {
+            const response = await axios.post(`https://backend-e54z.onrender.com/api/users/${userId}/follow`, {}, {
                 headers: { Authorization: `Bearer ${token}` }
             });
             return { userId, ...response.data };
@@ -71,7 +71,7 @@ export const unfollowUser = createAsyncThunk(
     async (userId, { rejectWithValue }) => {
         try {
             const token = localStorage.getItem('token');
-            const response = await axios.post(`http://localhost:1709/api/users/${userId}/unfollow`, {}, {
+            const response = await axios.post(`https://backend-e54z.onrender.com/api/users/${userId}/unfollow`, {}, {
                 headers: { Authorization: `Bearer ${token}` }
             });
             return { userId, ...response.data };
@@ -87,7 +87,7 @@ export const getUser = createAsyncThunk(
     async (userId, { rejectWithValue }) => {
         try {
             const token = localStorage.getItem('token');
-            const response = await axios.get(`http://localhost:1709/api/users/${userId}`, {
+            const response = await axios.get(`https://backend-e54z.onrender.com/api/users/${userId}`, {
                 headers: { Authorization: `Bearer ${token}` }
             });
             return response.data.user;

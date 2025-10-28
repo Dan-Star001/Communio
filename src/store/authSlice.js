@@ -7,7 +7,7 @@ export const updateUserProfile = createAsyncThunk(
   async (userData, { rejectWithValue }) => {
     try {
       const token = localStorage.getItem('token');
-      const response = await axios.put('http://localhost:1709/api/users/profile', userData, {
+      const response = await axios.put('https://backend-e54z.onrender.com/api/users/profile', userData, {
         headers: { Authorization: `Bearer ${token}` }
       });
       return response.data.user;
